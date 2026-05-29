@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html>
     <head>
-        <title>Earthquake Structural Stability Project - Dongyeon Kwon</title>
+        <title>Auto Screen Lock AI Project - Dongyeon Kwon</title>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
         <style>
@@ -151,7 +151,6 @@
             section:nth-child(3) { animation-delay: .2s; }
             section:nth-child(4) { animation-delay: .3s; }
             section:nth-child(5) { animation-delay: .4s; }
-            section:nth-child(6) { animation-delay: .5s; }
 
             /* ── Paragraphs & Details ───────────────────────────────────── */
             section p {
@@ -166,7 +165,7 @@
                 font-weight: bold;
             }
 
-            /* ── Interests / Tech Stack ─────────────────────────────────── */
+            /* ── Tech Stack Tags ─────────────────────────────────── */
             .tag-list {
                 display: flex;
                 flex-wrap: wrap;
@@ -182,21 +181,6 @@
                 font-size: .8rem;
                 color: var(--text);
                 letter-spacing: .04em;
-            }
-
-            /* ── Video Player ───────────────────────────────────────────── */
-            .video-container {
-                margin-top: 1.5rem;
-                border-radius: 8px;
-                overflow: hidden;
-                border: 1px solid var(--border);
-                background: var(--surface2);
-                box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-            }
-
-            .video-container video {
-                width: 100%;
-                display: block;
             }
 
             /* ── Contact / Links ────────────────────────────────────────── */
@@ -257,72 +241,60 @@
             <a href="index.html" class="nav-back">← Home</a>
             <a href="#overview" class="active">Motivation</a>
             <a href="#methods">Methods</a>
-            <a href="#video">Video</a> <a href="#results">Results</a>
+            <a href="#results">Results</a>
             <a href="#links">Links</a>
         </nav>
 
         <div id="wrapper">
 
             <header id="header">
-                <div class="avatar">🏢</div>
-                <div class="hero-text">
-                    <div class="role">Structural Stability Analysis</div>
-                    <h1>Evaluation and Improvement of Structural Stability under Earthquake using Response Spectrum</h1>
+                <div class="avatar">📷</div> <div class="hero-text">
+                    <div class="role">Computer Vision & AI Application</div>
+                    <h1>Automatic Screen Lock Program for Privacy & Security</h1>
                     <div class="affil">
-                        2024. 66th Gyeongnam Science Exhibition Entry &nbsp;·&nbsp; 창과방패 (Dongyeon Kwon, Sihyeon Kim, Yeseo Ahn)
+                        Data Literacy Foundations (EF1003) &nbsp;·&nbsp; Team 03 (Han Ye Gang, Dongyeon Kwon)
                     </div>
                 </div>
             </header>
 
             <section id="overview">
-                <div class="section-label">1. Motivation and Purpose</div>
+                <div class="section-label">1. Idea & Motivation</div>
                 <p>
-                    As the frequency of earthquakes in Korea has gradually increased since the 2000s, the scale of damage caused by building collapses has also grown. This study was initiated to devise a seismic design method capable of effectively distributing forces, inspired by the Truss structure, in order to minimize earthquake damage.
+                    Leaving a computer unattended can easily expose sensitive information to anyone nearby. While manual locking is the standard procedure, it is often forgotten—especially in busy environments like libraries, offices, and research labs.
                 </p>
                 <p>
-                    The primary objective is to evaluate the stability of three commonly used seismic design structures using the response spectrum, compare them with a directly designed truss structure model, and derive the safest seismic design strategy.
+                    To solve this problem, we developed a real-time webcam monitoring system that detects whether a person is present at the desk. If the seat remains empty for <strong>5 consecutive seconds</strong>, the program automatically locks the Windows screen, providing a practical, lightweight, and immediately usable security layer.
                 </p>
             </section>
 
             <section id="methods">
-                <div class="section-label">2. Research Methods & Tools</div>
+                <div class="section-label">2. Development & Implementation</div>
                 <div class="tag-list" style="margin-bottom: 1.5rem;">
-                    <span class="tag">MIDAS NFX (3D Modeling)</span>
-                    <span class="tag">Response Spectrum</span>
-                    <span class="tag">Earthquake Simulator</span>
-                    <span class="tag">Truss Design</span>
+                    <span class="tag">Python</span>
+                    <span class="tag">OpenCV</span>
+                    <span class="tag">TensorFlow / Keras</span>
+                    <span class="tag">Teachable Machine</span>
+                    <span class="tag">Windows API (ctypes)</span>
                 </div>
                 
-                <p><strong>A. Building Design & Model Production</strong><br>
-                A total of three models were produced: a 'Basic Structure' with a simple frame, a commonly used 'Double Warren Truss Structure', and a newly designed 'Seismic Structure' configured in a triangular shape that accounts for both vertical and horizontal loads.</p>
+                <p><strong>A. Data Collection & Curation</strong><br>
+                We captured a total of 506 training samples via webcam. To ensure robust detection, we collected 370 <i>'person_existed'</i> images (including single and multiple persons) and 136 <i>'no_person'</i> images featuring empty chairs and desks with various backgrounds and lighting conditions.</p>
                 
-                <p><strong>B. Earthquake Simulation Experiment</strong><br>
-                By visually comparing the movement of each building model using an earthquake simulator, it was confirmed that the directly designed structure effectively suppressed displacement and maintained stability far better than the existing structures.</p>
+                <p><strong>B. AI Model Training</strong><br>
+                Utilizing Google Teachable Machine, we trained a lightweight AI model based on MobileNet (Transfer Learning). The model was trained over 50 epochs with a batch size of 16, resulting in a highly accurate binary classification system.</p>
                 
-                <p><strong>C. 3D Modeling & Response Spectrum Analysis</strong><br>
-                For a precise quantitative evaluation, the buildings were 3D modeled using MIDAS NFX software. After inputting vertical and horizontal seismic loads, displacement and maximum stress based on natural frequency were calculated through response spectrum analysis.</p>
-            </section>
-
-            <section id="video">
-                <div class="section-label">3. Demonstration Video</div>
-                <p>Below is a demonstration video showing the earthquake simulation experiment comparing the structural stability of the models. You can observe how the applied seismic design effectively suppresses displacement.</p>
-                
-                <div class="video-container">
-                    <video controls preload="metadata">
-                        <source src="demo.mp4" type="video/mp4">
-                        Your browser does not support the video tag.
-                    </video>
-                </div>
+                <p><strong>C. System Integration</strong><br>
+                The core logic was implemented in Python (`main.py`). The program uses OpenCV to capture and preprocess real-time video frames, feeds them into the Keras model for inference, and utilizes the ctypes API (`LockWorkStation`) to trigger the OS-level lock screen if the "no_person" state persists for the set timer duration.</p>
             </section>
 
             <section id="results">
-                <div class="section-label">4. Results & Expected Effects</div>
+                <div class="section-label">3. Demo Results & Future Outlook</div>
                 
-                <p><strong>A. Comparison of Analysis Results</strong><br>
-                After analyzing the response spectrum of each structure across 150 modes, the average error value of the newly designed structure (0.000302) was found to be significantly lower than that of the basic structure (0.00332) and the Double Warren Truss structure (0.000438). This clearly indicates that the proposed structure experiences the least displacement and deformation during a seismic event.</p>
+                <p><strong>A. Live Demonstration Performance</strong><br>
+                The program successfully operates as a continuous background process. When a user is detected, the program displays a green status text showing the confidence score. The moment the user leaves the frame, a red 5-second countdown initiates, reliably executing the Windows screen lock precisely as intended.</p>
                 
-                <p><strong>B. Expected Effects</strong><br>
-                This study established a reliable foundation for numerically evaluating the stability of diverse design structures. Applying the proposed optimal structural design to actual architectural projects is expected to drastically reduce the risk of building collapse and ensure public safety during earthquakes.</p>
+                <p><strong>B. Limitations & Future Improvements</strong><br>
+                Currently, the implementation relies on the Windows-specific ctypes API. Future iterations aim to introduce cross-platform support (macOS/Linux), implement adjustable lock delays via a configuration file, and add audible alerts before locking to accommodate edge cases like extreme lighting or partial occlusions.</p>
             </section>
 
             <section id="links">
@@ -333,8 +305,8 @@
                         <span class="value" style="color: var(--muted); font-style: italic;">No repository is currently registered.</span>
                     </div>
                     <div class="contact-item">
-                        <span class="label">Report</span>
-                        <a class="value" href="report1.pdf" target="_blank" rel="noopener">View Original Report (PDF)</a>
+                        <span class="label">Slides</span>
+                        <a class="value" href="report3.pdf" target="_blank" rel="noopener">View Original Report (PDF)</a>
                     </div>
                 </div>
             </section>

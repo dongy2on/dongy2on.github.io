@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html>
     <head>
-        <title>Earthquake Structural Stability Project - Dongyeon Kwon</title>
+        <title>Tetration-Based Encryption Project - Dongyeon Kwon</title>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
         <style>
@@ -151,7 +151,6 @@
             section:nth-child(3) { animation-delay: .2s; }
             section:nth-child(4) { animation-delay: .3s; }
             section:nth-child(5) { animation-delay: .4s; }
-            section:nth-child(6) { animation-delay: .5s; }
 
             /* ── Paragraphs & Details ───────────────────────────────────── */
             section p {
@@ -166,7 +165,7 @@
                 font-weight: bold;
             }
 
-            /* ── Interests / Tech Stack ─────────────────────────────────── */
+            /* ── Tech Stack Tags ─────────────────────────────────── */
             .tag-list {
                 display: flex;
                 flex-wrap: wrap;
@@ -182,21 +181,6 @@
                 font-size: .8rem;
                 color: var(--text);
                 letter-spacing: .04em;
-            }
-
-            /* ── Video Player ───────────────────────────────────────────── */
-            .video-container {
-                margin-top: 1.5rem;
-                border-radius: 8px;
-                overflow: hidden;
-                border: 1px solid var(--border);
-                background: var(--surface2);
-                box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-            }
-
-            .video-container video {
-                width: 100%;
-                display: block;
             }
 
             /* ── Contact / Links ────────────────────────────────────────── */
@@ -257,19 +241,19 @@
             <a href="index.html" class="nav-back">← Home</a>
             <a href="#overview" class="active">Motivation</a>
             <a href="#methods">Methods</a>
-            <a href="#video">Video</a> <a href="#results">Results</a>
+            <a href="#results">Results</a>
             <a href="#links">Links</a>
         </nav>
 
         <div id="wrapper">
 
             <header id="header">
-                <div class="avatar">🏢</div>
+                <div class="avatar">🔒</div>
                 <div class="hero-text">
-                    <div class="role">Structural Stability Analysis</div>
-                    <h1>Evaluation and Improvement of Structural Stability under Earthquake using Response Spectrum</h1>
+                    <div class="role">Cryptographic Research</div>
+                    <h1>A Study on Image Encryption System Based on Tetration Operation</h1>
                     <div class="affil">
-                        2024. 66th Gyeongnam Science Exhibition Entry &nbsp;·&nbsp; 창과방패 (Dongyeon Kwon, Sihyeon Kim, Yeseo Ahn)
+                        2025. 67th Gyeongnam Science Exhibition Entry &nbsp;·&nbsp; 슈퍼쏘니 (Dongyeon Kwon, Sihyeon Kim, Yeseo Ahn)
                     </div>
                 </div>
             </header>
@@ -277,52 +261,41 @@
             <section id="overview">
                 <div class="section-label">1. Motivation and Purpose</div>
                 <p>
-                    As the frequency of earthquakes in Korea has gradually increased since the 2000s, the scale of damage caused by building collapses has also grown. This study was initiated to devise a seismic design method capable of effectively distributing forces, inspired by the Truss structure, in order to minimize earthquake damage.
+                    In modern society, information security has become a critical pillar of daily life and state infrastructure. However, with the rapid advance of computational power, traditional encryption methods are increasingly vulnerable to brute-force attacks. This research proposes a revolutionary approach to image cryptography by leveraging Tetration—a hyper-operation that scales vastly faster than normal exponentiation.
                 </p>
                 <p>
-                    The primary objective is to evaluate the stability of three commonly used seismic design structures using the response spectrum, compare them with a directly designed truss structure model, and derive the safest seismic design strategy.
+                    The core objective of this study is to utilize the chaotic behavior, extreme sensitivity to initial conditions, and mathematical non-invertibility of tetration to develop a highly secure, next-generation encryption algorithm for digital assets.
                 </p>
             </section>
 
             <section id="methods">
-                <div class="section-label">2. Research Methods & Tools</div>
+                <div class="section-label">2. Research Methods & Core Mechanisms</div>
                 <div class="tag-list" style="margin-bottom: 1.5rem;">
-                    <span class="tag">MIDAS NFX (3D Modeling)</span>
-                    <span class="tag">Response Spectrum</span>
-                    <span class="tag">Earthquake Simulator</span>
-                    <span class="tag">Truss Design</span>
+                    <span class="tag">Tetration Mathematics</span>
+                    <span class="tag">Image Encryption</span>
+                    <span class="tag">Key Space Expansion</span>
+                    <span class="tag">Chaotic Mapping</span>
+                    <span class="tag">High-Precision Computation</span>
                 </div>
                 
-                <p><strong>A. Building Design & Model Production</strong><br>
-                A total of three models were produced: a 'Basic Structure' with a simple frame, a commonly used 'Double Warren Truss Structure', and a newly designed 'Seismic Structure' configured in a triangular shape that accounts for both vertical and horizontal loads.</p>
+                <p><strong>A. Design of Tetration-Based Algorithm</strong><br>
+                Tetration (iterated exponentiation) generates numbers that grow at astronomical rates. By applying tetration sequences to image pixel grids, we constructed a dynamic cipher capable of scrambling pixel positions and altering data values simultaneously.</p>
                 
-                <p><strong>B. Earthquake Simulation Experiment</strong><br>
-                By visually comparing the movement of each building model using an earthquake simulator, it was confirmed that the directly designed structure effectively suppressed displacement and maintained stability far better than the existing structures.</p>
+                <p><strong>B. Multi-Layered Diffusion & Confusion</strong><br>
+                The encryption process executes repetitive mathematical operations where convergence and divergence patterns are treated as security parameters. Even with identical source images, using slightly different computational keys produces completely independent ciphertexts.</p>
                 
-                <p><strong>C. 3D Modeling & Response Spectrum Analysis</strong><br>
-                For a precise quantitative evaluation, the buildings were 3D modeled using MIDAS NFX software. After inputting vertical and horizontal seismic loads, displacement and maximum stress based on natural frequency were calculated through response spectrum analysis.</p>
-            </section>
-
-            <section id="video">
-                <div class="section-label">3. Demonstration Video</div>
-                <p>Below is a demonstration video showing the earthquake simulation experiment comparing the structural stability of the models. You can observe how the applied seismic design effectively suppresses displacement.</p>
-                
-                <div class="video-container">
-                    <video controls preload="metadata">
-                        <source src="demo.mp4" type="video/mp4">
-                        Your browser does not support the video tag.
-                    </video>
-                </div>
+                <p><strong>C. High-Precision Key Optimization</strong><br>
+                Because tetration calculations are highly chaotic, the algorithm enforces ultra-high-precision floating-point operations to prevent decryption errors while guaranteeing that a microscopic change in the key space results in an unresolvable avalanche effect.</p>
             </section>
 
             <section id="results">
-                <div class="section-label">4. Results & Expected Effects</div>
+                <div class="section-label">3. Results & Expected Contributions</div>
                 
-                <p><strong>A. Comparison of Analysis Results</strong><br>
-                After analyzing the response spectrum of each structure across 150 modes, the average error value of the newly designed structure (0.000302) was found to be significantly lower than that of the basic structure (0.00332) and the Double Warren Truss structure (0.000438). This clearly indicates that the proposed structure experiences the least displacement and deformation during a seismic event.</p>
+                <p><strong>A. Cryptographic Performance Analysis</strong><br>
+                Empirical testing demonstrated that executing the tetration algorithm for 10 iterations transforms structural images into completely chaotic, randomized visual noise. Due to the lack of an analytical inverse function for tetration, the cipher is immune to standard reverse-engineering attacks, exponentially maximizing data resistance against brute-force intrusion.</p>
                 
-                <p><strong>B. Expected Effects</strong><br>
-                This study established a reliable foundation for numerically evaluating the stability of diverse design structures. Applying the proposed optimal structural design to actual architectural projects is expected to drastically reduce the risk of building collapse and ensure public safety during earthquakes.</p>
+                <p><strong>B. Future Outlook and Impact</strong><br>
+                This research successfully shifts the paradigm of encryption from exponential complexity to hyper-operational complexity. Although requiring substantial computational overhead for high-precision matrix processing, its superior security thresholds make it exceptionally viable for high-stakes governmental, medical, and military data protection.</p>
             </section>
 
             <section id="links">
@@ -334,7 +307,7 @@
                     </div>
                     <div class="contact-item">
                         <span class="label">Report</span>
-                        <a class="value" href="report1.pdf" target="_blank" rel="noopener">View Original Report (PDF)</a>
+                        <a class="value" href="report2.pdf" target="_blank" rel="noopener">View Original Report (PDF)</a>
                     </div>
                 </div>
             </section>
