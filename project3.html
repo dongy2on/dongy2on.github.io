@@ -446,9 +446,20 @@
         </div>
 
         <script>
-            // Navigation Bar Active State Script
+            // Navigation Bar Active State & Smooth Scroll Handling
             const navLinks = document.querySelectorAll('#nav a:not(.nav-back)');
             const sections = document.querySelectorAll('section[id]');
+
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    const targetSection = document.querySelector(targetId);
+                    if (targetSection) {
+                        targetSection.scrollIntoView({ behavior: 'smooth' });
+                    }
+                });
+            });
 
             function spyScroll() {
                 const scrollPos = window.scrollY || document.documentElement.scrollTop;
@@ -494,14 +505,12 @@
             function moveSlide(direction) {
                 currentSlide += direction;
                 
-                // 루프(순환) 구현: 처음이나 끝에 도달했을 때 처리
                 if (currentSlide >= totalSlides) {
                     currentSlide = 0;
                 } else if (currentSlide < 0) {
                     currentSlide = totalSlides - 1;
                 }
                 
-                // 가로 스크롤 이동 연산 및 페이지 번호 갱신
                 sliderWrapper.style.transform = `translateX(-${currentSlide * 100}%)`;
                 sliderCounter.textContent = `${currentSlide + 1} / ${totalSlides}`;
             }

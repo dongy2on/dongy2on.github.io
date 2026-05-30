@@ -5,7 +5,6 @@
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
         <style>
-            /* ── Reset & Variables ────────────────── */
             *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
             :root {
@@ -33,7 +32,6 @@
             a { color: var(--accent); text-decoration: none; }
             a:hover { color: var(--accent2); }
 
-            /* ── Nav ───────────────────────────────────────────────────── */
             #nav {
                 position: fixed;
                 top: 0; left: 0; right: 0;
@@ -72,14 +70,12 @@
                 color: var(--accent) !important;
             }
 
-            /* ── Wrapper ───────────────────────────────────────────────── */
             #wrapper {
                 max-width: 820px;
                 margin: 0 auto;
                 padding: calc(var(--nav-h) + 4rem) 2rem 4rem;
             }
 
-            /* ── Hero / Header ───────────────── */
             #header {
                 display: flex;
                 align-items: center;
@@ -129,7 +125,6 @@
                 font-size: .92rem;
             }
 
-            /* ── Section titles ─────────────────────────────────────────── */
             .section-label {
                 font-family: 'Georgia', serif;
                 font-size: 1.35rem;
@@ -154,7 +149,6 @@
             section:nth-child(5) { animation-delay: .4s; }
             section:nth-child(6) { animation-delay: .5s; }
 
-            /* ── Paragraphs & Details ───────────────────────────────────── */
             section p {
                 color: var(--muted);
                 font-size: .97rem;
@@ -167,7 +161,6 @@
                 font-weight: bold;
             }
 
-            /* ── Interests / Tech Stack ─────────────────────────────────── */
             .tag-list {
                 display: flex;
                 flex-wrap: wrap;
@@ -185,7 +178,6 @@
                 letter-spacing: .04em;
             }
 
-            /* ── Video Player ───────────────────────────────────────────── */
             .video-container {
                 margin-top: 1.5rem;
                 border-radius: 8px;
@@ -200,7 +192,6 @@
                 display: block;
             }
 
-            /* ── Contact / Links ────────────────────────────────────────── */
             .contact-row {
                 display: flex;
                 flex-direction: column;
@@ -227,7 +218,6 @@
             .contact-item a.value { color: var(--accent); }
             .contact-item a.value:hover { color: var(--accent2); }
 
-            /* ── Footer ─────────────────────────────────────────────────── */
             footer {
                 border-top: 1px solid var(--border);
                 padding-top: 2rem;
@@ -237,13 +227,11 @@
                 letter-spacing: .05em;
             }
 
-            /* ── Animation ──────────────────────────────────────────────── */
             @keyframes fadeUp {
                 from { opacity: 0; transform: translateY(18px); }
                 to   { opacity: 1; transform: translateY(0); }
             }
 
-            /* ── Responsive ─────────────────────────────────────────────── */
             @media (max-width: 600px) {
                 #nav { gap: 1rem; justify-content: flex-start; padding: 0 1rem; overflow-x: auto;}
                 .nav-back { margin-left: 0; margin-right: 1rem;}
@@ -347,9 +335,19 @@
         </div>
 
         <script>
-            // Navigation Bar Active State Script
             const navLinks = document.querySelectorAll('#nav a:not(.nav-back)');
             const sections = document.querySelectorAll('section[id]');
+
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    const targetSection = document.querySelector(targetId);
+                    if (targetSection) {
+                        targetSection.scrollIntoView({ behavior: 'smooth' });
+                    }
+                });
+            });
 
             function spyScroll() {
                 const scrollPos = window.scrollY || document.documentElement.scrollTop;
