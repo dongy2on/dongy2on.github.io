@@ -44,8 +44,9 @@
                 display: flex;
                 align-items: center;
                 justify-content: center;
-                gap: 2.5rem;
+                gap: 2rem;
                 z-index: 100;
+                padding-right: 2rem;
             }
 
             #nav a {
@@ -151,6 +152,8 @@
             section:nth-child(3) { animation-delay: .2s; }
             section:nth-child(4) { animation-delay: .3s; }
             section:nth-child(5) { animation-delay: .4s; }
+            section:nth-child(6) { animation-delay: .5s; }
+            section:nth-child(7) { animation-delay: .6s; }
 
             /* ── Paragraphs & Details ───────────────────────────────────── */
             section p {
@@ -181,6 +184,94 @@
                 font-size: .8rem;
                 color: var(--text);
                 letter-spacing: .04em;
+            }
+
+            /* ── Video Player ───────────────────────────────────────────── */
+            .video-container {
+                margin-top: 1.5rem;
+                border-radius: 8px;
+                overflow: hidden;
+                border: 1px solid var(--border);
+                background: var(--surface2);
+                box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            }
+
+            .video-container video {
+                width: 100%;
+                display: block;
+            }
+
+            /* ── Image Slider (Gallery) ─────────────────────────────────── */
+            .slider-container {
+                position: relative;
+                margin-top: 1.5rem;
+                border-radius: 8px;
+                overflow: hidden;
+                border: 1px solid var(--border);
+                background: var(--surface2);
+                box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            }
+
+            .slider-wrapper {
+                display: flex;
+                transition: transform 0.4s ease-in-out;
+                width: 100%;
+            }
+
+            .slider-slide {
+                min-width: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                background: #0d0f14;
+            }
+
+            .slider-slide img {
+                width: 100%;
+                height: auto;
+                max-height: 480px;
+                object-fit: contain;
+                display: block;
+            }
+
+            .slider-btn {
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+                background: rgba(19, 22, 30, 0.7);
+                backdrop-filter: blur(8px);
+                border: 1px solid var(--border);
+                color: var(--text);
+                font-size: 1.2rem;
+                padding: 0.6rem 1rem;
+                cursor: pointer;
+                border-radius: 6px;
+                transition: all 0.2s ease;
+                z-index: 10;
+                user-select: none;
+            }
+
+            .slider-btn:hover {
+                background: var(--accent);
+                color: #ffffff;
+                border-color: var(--accent);
+            }
+
+            .slider-btn.prev { left: 1rem; }
+            .slider-btn.next { right: 1rem; }
+
+            .slider-counter {
+                position: absolute;
+                bottom: 1rem;
+                right: 1rem;
+                background: rgba(13, 15, 20, 0.75);
+                backdrop-filter: blur(4px);
+                padding: .2rem .6rem;
+                border-radius: 4px;
+                font-family: 'Courier New', monospace;
+                font-size: .8rem;
+                color: var(--muted);
+                border: 1px solid var(--border);
             }
 
             /* ── Contact / Links ────────────────────────────────────────── */
@@ -241,6 +332,8 @@
             <a href="index.html" class="nav-back">← Home</a>
             <a href="#overview" class="active">Motivation</a>
             <a href="#methods">Methods</a>
+            <a href="#video">Video</a>
+            <a href="#gallery">Gallery</a>
             <a href="#results">Results</a>
             <a href="#links">Links</a>
         </nav>
@@ -248,7 +341,8 @@
         <div id="wrapper">
 
             <header id="header">
-                <div class="avatar">📷</div> <div class="hero-text">
+                <div class="avatar">📷</div> 
+                <div class="hero-text">
                     <div class="role">Computer Vision & AI Application</div>
                     <h1>Automatic Screen Lock Program for Privacy & Security</h1>
                     <div class="affil">
@@ -287,8 +381,42 @@
                 The core logic was implemented in Python (`main.py`). The program uses OpenCV to capture and preprocess real-time video frames, feeds them into the Keras model for inference, and utilizes the ctypes API (`LockWorkStation`) to trigger the OS-level lock screen if the "no_person" state persists for the set timer duration.</p>
             </section>
 
+            <section id="video">
+                <div class="section-label">3. Demonstration Video</div>
+                <p>Below is a demonstration video showing the Automatic Screen Lock system in action. You can observe the real-time presence detection and the automatic 5-second countdown lock mechanism.</p>
+                
+                <div class="video-container">
+                    <video controls preload="metadata">
+                        <source src="demo2.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+            </section>
+
+            <section id="gallery">
+                <div class="section-label">4. Project Gallery</div>
+                <p>A representative sample of our deep learning training dataset, showcasing the diverse lighting conditions, backgrounds, and user presence variations used to train the classification model.</p>
+                
+                <div class="slider-container">
+                    <button class="slider-btn prev" onclick="moveSlide(-1)">&#10094;</button>
+                    <button class="slider-btn next" onclick="moveSlide(1)">&#10095;</button>
+                    
+                    <div class="slider-wrapper" id="sliderWrapper">
+                        <div class="slider-slide"><img src="img1.jpg" alt="Project Phase 1"></div>
+                        <div class="slider-slide"><img src="img2.jpg" alt="Project Phase 2"></div>
+                        <div class="slider-slide"><img src="img3.jpg" alt="Project Phase 3"></div>
+                        <div class="slider-slide"><img src="img4.jpg" alt="Project Phase 4"></div>
+                        <div class="slider-slide"><img src="img5.jpg" alt="Project Phase 5"></div>
+                        <div class="slider-slide"><img src="img6.jpg" alt="Project Phase 6"></div>
+                        <div class="slider-slide"><img src="img7.jpg" alt="Project Phase 7"></div>
+                    </div>
+                    
+                    <div class="slider-counter" id="sliderCounter">1 / 7</div>
+                </div>
+            </section>
+
             <section id="results">
-                <div class="section-label">3. Demo Results & Future Outlook</div>
+                <div class="section-label">5. Demo Results & Future Outlook</div>
                 
                 <p><strong>A. Live Demonstration Performance</strong><br>
                 The program successfully operates as a continuous background process. When a user is detected, the program displays a green status text showing the confidence score. The moment the user leaves the frame, a red 5-second countdown initiates, reliably executing the Windows screen lock precisely as intended.</p>
@@ -302,7 +430,7 @@
                 <div class="contact-row">
                     <div class="contact-item">
                         <span class="label">GitHub</span>
-                        <span class="value" style="color: var(--muted); font-style: italic;">No repository is currently registered.</span>
+                        <a class="value" href="https://github.com/dongy2on/Automatic-Screen-Lock-Program" target="_blank" rel="noopener">View Repository</a>
                     </div>
                     <div class="contact-item">
                         <span class="label">Slides</span>
@@ -356,6 +484,27 @@
 
             window.addEventListener('scroll', spyScroll);
             spyScroll();
+
+            // ── Image Slider Control Script ─────────────────────────────────
+            let currentSlide = 0;
+            const totalSlides = 7;
+            const sliderWrapper = document.getElementById('sliderWrapper');
+            const sliderCounter = document.getElementById('sliderCounter');
+
+            function moveSlide(direction) {
+                currentSlide += direction;
+                
+                // 루프(순환) 구현: 처음이나 끝에 도달했을 때 처리
+                if (currentSlide >= totalSlides) {
+                    currentSlide = 0;
+                } else if (currentSlide < 0) {
+                    currentSlide = totalSlides - 1;
+                }
+                
+                // 가로 스크롤 이동 연산 및 페이지 번호 갱신
+                sliderWrapper.style.transform = `translateX(-${currentSlide * 100}%)`;
+                sliderCounter.textContent = `${currentSlide + 1} / ${totalSlides}`;
+            }
         </script>
 
     </body>
