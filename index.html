@@ -135,14 +135,122 @@
             }
 
             section:nth-child(2) { animation-delay: .1s; }
-            section:nth-child(3) { animation-delay: .2s; }
-            section:nth-child(4) { animation-delay: .3s; }
-            section:nth-child(5) { animation-delay: .4s; }
+            section:nth-child(3) { animation-delay: .15s; }
+            section:nth-child(4) { animation-delay: .2s; }
 
             #about p {
                 color: var(--muted);
                 font-size: .97rem;
                 max-width: 600px;
+            }
+
+            .edu-list {
+                display: flex;
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+
+            .edu-item {
+                display: flex;
+                justify-content: space-between;
+                align-items: flex-start;
+                border-bottom: 1px dashed var(--border);
+                padding-bottom: 1.2rem;
+            }
+
+            .edu-item:last-child {
+                border-bottom: none;
+                padding-bottom: 0;
+            }
+
+            .edu-info {
+                width: 100%;
+            }
+
+            .edu-info .institution {
+                font-family: 'Georgia', serif;
+                font-size: 1.05rem;
+                color: var(--text);
+            }
+
+            .edu-info .details {
+                font-size: 0.88rem;
+                color: var(--muted);
+                margin-top: 0.1rem;
+            }
+
+            .edu-date {
+                font-family: 'Courier New', monospace;
+                font-size: 0.85rem;
+                color: var(--accent);
+                white-space: nowrap;
+                text-align: right;
+            }
+
+            .awards-toggle {
+                margin-top: 0.8rem;
+                font-size: 0.8rem;
+                color: var(--muted);
+            }
+
+            .awards-toggle summary {
+                cursor: pointer;
+                list-style: none;
+                display: flex;
+                align-items: center;
+                gap: 0.4rem;
+                transition: color 0.2s;
+                user-select: none;
+                font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+                font-weight: 400 !important;
+            }
+
+            .awards-toggle summary:hover {
+                color: var(--accent2);
+            }
+
+            .awards-toggle summary::before {
+                content: '⊕';
+                font-size: 0.9rem;
+                color: var(--accent);
+            }
+
+            .awards-toggle[open] summary::before {
+                content: '⊖';
+            }
+
+            .awards-content {
+                margin-top: 0.6rem;
+                padding-left: 0.8rem;
+                border-left: 1px solid var(--border);
+                display: flex;
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+
+            .award-entry {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                gap: 3rem;
+            }
+
+            .award-name {
+                color: var(--muted); /* 차분한 톤으로 변경 완료 */
+                font-size: 0.85rem;
+                font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+                font-weight: 400 !important;
+                letter-spacing: -0.01em;
+                flex-grow: 1;
+            }
+
+            .award-time {
+                color: var(--muted);
+                font-family: 'Courier New', monospace;
+                font-size: 0.75rem;
+                white-space: nowrap;
+                font-weight: 400 !important;
+                text-align: right;
             }
 
             .tag-list {
@@ -201,14 +309,6 @@
                 font-size: .88rem;
             }
 
-            .placeholder-note {
-                color: var(--muted);
-                font-size: .85rem;
-                font-style: italic;
-                border-left: 2px solid var(--border);
-                padding-left: .8rem;
-            }
-
             .contact-row {
                 display: flex;
                 flex-direction: column;
@@ -252,8 +352,11 @@
             @media (max-width: 520px) {
                 #header { flex-direction: column; align-items: flex-start; gap: 1.2rem; }
                 .hero-text h1 { font-size: 1.5rem; }
-                #nav { gap: 1.2rem; }
-                #nav a { font-size: .7rem; }
+                #nav { gap: 1rem; }
+                #nav a { font-size: .65rem; }
+                .edu-item { flex-direction: column; gap: 0.3rem; }
+                .edu-date { text-align: left; }
+                .award-entry { flex-direction: column; gap: 0.1rem; margin-bottom: 0.3rem; }
             }
         </style>
     </head>
@@ -261,6 +364,7 @@
 
         <nav id="nav">
             <a href="#about" class="active">About</a>
+            <a href="#education">Education</a>
             <a href="#interests">Interests</a>
             <a href="#projects">Projects</a>
             <a href="#contact">Contact</a>
@@ -287,6 +391,66 @@
                 </p>
             </section>
 
+            <section id="education">
+                <div class="section-label">Education</div>
+                <div class="edu-list">
+                    <div class="edu-item">
+                        <div class="edu-info">
+                            <div class="institution">Korea Institute of Energy Technology (KENTECH)</div>
+                            <div class="details">School of Energy Engineering (5th Class)</div>
+                            
+                            <details class="awards-toggle">
+                                <summary>Honors & Awards</summary>
+                                <div class="awards-content">
+                                    <div class="award-entry">
+                                        <span class="award-name">To be added...</span>
+                                    </div>
+                                </div>
+                            </details>
+                        </div>
+                        <div class="edu-date">Mar 2026 — Present</div>
+                    </div>
+
+                    <div class="edu-item">
+                        <div class="edu-info">
+                            <div class="institution">Changwon Science High School</div>
+                            <div class="details">13th Class Graduate</div>
+
+                            <details class="awards-toggle">
+                                <summary>Honors & Awards</summary>
+                                <div class="awards-content">
+                                    <div class="award-entry">
+                                        <span class="award-name">교과우수상(선형대수학)</span>
+                                        <span class="award-time">2026.02.06</span>
+                                    </div>
+                                    <div class="award-entry">
+                                        <span class="award-name">3년 정근상</span>
+                                        <span class="award-time">2026.02.06</span>
+                                    </div>
+                                    <div class="award-entry">
+                                        <span class="award-name">교과우수상(AP일반물리학 I)</span>
+                                        <span class="award-time">2025.07.23</span>
+                                    </div>
+                                    <div class="award-entry">
+                                        <span class="award-name">경시대회(알고리즘챌린지부문) - 동상(3위)</span>
+                                        <span class="award-time">2025.04.30</span>
+                                    </div>
+                                    <div class="award-entry">
+                                        <span class="award-name">교과우수상(정보과학)</span>
+                                        <span class="award-time">2024.12.24</span>
+                                    </div>
+                                    <div class="award-entry">
+                                        <span class="award-name">경시대회(수학부문) - 은상(2위)</span>
+                                        <span class="award-time">2023.12.22</span>
+                                    </div>
+                                </div>
+                            </details>
+                        </div>
+                        <div class="edu-date">Mar 2023 — Feb 2026</div>
+                    </div>
+                </div>
+            </section>
+
             <section id="interests">
                 <div class="section-label">Academic Interests</div>
                 <div class="tag-list">
@@ -299,25 +463,16 @@
 
             <section id="projects">
                 <div class="section-label">Projects</div>
-
-                <a class="project-card" href="project1.html" title="View Project Details">
-                    <div class="p-title">
-                        Evaluation of Structural Stability under Earthquake <span class="arrow">→</span>
-                    </div>
+                <a class="project-card" href="project1.html">
+                    <div class="p-title">Evaluation of Structural Stability under Earthquake <span class="arrow">→</span></div>
                     <div class="p-desc">Structural stability analysis and improvement using response spectrum and truss design.</div>
                 </a>
-
-                <a class="project-card" href="project2.html" title="View Project Details">
-                    <div class="p-title">
-                        Tetration-Based Image Encryption System <span class="arrow">→</span>
-                    </div>
+                <a class="project-card" href="project2.html">
+                    <div class="p-title">Tetration-Based Image Encryption System <span class="arrow">→</span></div>
                     <div class="p-desc">A next-generation cryptographic study leveraging hyper-operational complexity.</div>
                 </a>
-                
-                <a class="project-card" href="project3.html" title="View Project Details">
-                    <div class="p-title">
-                        Automatic Screen Lock using AI <span class="arrow">→</span>
-                    </div>
+                <a class="project-card" href="project3.html">
+                    <div class="p-title">Automatic Screen Lock using AI <span class="arrow">→</span></div>
                     <div class="p-desc">A real-time webcam monitor using Teachable Machine and Python to secure unattended workstations.</div>
                 </a>
             </section>
@@ -331,11 +486,11 @@
                     </div>
                     <div class="contact-item">
                         <span class="label">GitHub</span>
-                        <a class="value" href="https://github.com/dongy2on" target="_blank" rel="noopener">https://github.com/dongy2on</a>
+                        <a class="value" href="https://github.com/dongy2on" target="_blank">dongy2on</a>
                     </div>
                     <div class="contact-item">
                         <span class="label">Instagram</span>
-                        <a class="value" href="https://www.instagram.com/dongy2on/" target="_blank" rel="noopener">https://www.instagram.com/dongy2on/</a>
+                        <a class="value" href="https://www.instagram.com/dongy2on/" target="_blank">dongy2on</a>
                     </div>
                 </div>
             </section>
@@ -353,10 +508,8 @@
             navLinks.forEach(link => {
                 link.addEventListener('click', function(e) {
                     e.preventDefault();
-                    
                     const targetId = this.getAttribute('href');
                     const targetSection = document.querySelector(targetId);
-                    
                     if (targetSection) {
                         targetSection.scrollIntoView({ behavior: 'smooth' });
                     }
@@ -365,26 +518,17 @@
 
             function spyScroll() {
                 const scrollPos = window.scrollY || document.documentElement.scrollTop;
-
                 if (scrollPos < 150) {
                     navLinks.forEach(l => l.classList.remove('active'));
                     document.querySelector('#nav a[href="#about"]').classList.add('active');
                     return;
                 }
-
-                if ((window.innerHeight + scrollPos) >= document.documentElement.scrollHeight - 20) {
-                    navLinks.forEach(l => l.classList.remove('active'));
-                    document.querySelector('#nav a[href="#contact"]').classList.add('active');
-                    return;
-                }
-
                 let currentSectionId = '';
                 sections.forEach(section => {
                     if (scrollPos >= section.offsetTop - 100) {
                         currentSectionId = section.id;
                     }
                 });
-
                 if (currentSectionId) {
                     navLinks.forEach(link => {
                         link.classList.remove('active');
@@ -394,7 +538,6 @@
                     });
                 }
             }
-
             window.addEventListener('scroll', spyScroll);
             spyScroll();
         </script>
